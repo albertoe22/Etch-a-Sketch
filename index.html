@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href = "style.css">
+    </head>
+    <body>
+        <button onclick = "changeGrid()">Reset</button>
+        <div id ="container"></div>
+    </body>
+
+
+</html>
+
+<script>
+    function createGrid(size) {
+        for (var j = 0; j < size; j++) {
+            var row = document.createElement("div")
+            row.className = "row";
+            for (var i = 0; i < size; i ++) {
+                var div = document.createElement("div");
+                div.className = "grid";
+
+                row.appendChild(div);   
+            }
+            document.getElementById("container").appendChild(row);
+
+        }
+
+    }
+    function changeGrid() {
+        var size;
+        var person = prompt("Please enter a number from 1-64", "1");
+        person 
+    }
+
+    createGrid(20);
+    var x = document.getElementById("container");
+    var y = document.getElementsByClassName("grid");
+
+    for (var i = 0; i < y.length; i++) {
+        y[i].addEventListener("mouseover", function (e){
+            e.target.style.backgroundColor = "blue";
+        });
+
+    }
+
+
+</script>
