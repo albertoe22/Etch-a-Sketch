@@ -1,5 +1,7 @@
 body {
     text-align: center;
+    margin:0;
+    height: 100%;
 }
 button {
     background-color: #555555;; 
@@ -13,10 +15,12 @@ button {
     font-size: 16px;
 }
 #container { 
-    width: 1000px;
-    height: 1000px;
+    width: 500px;
+    height: 500px;
     position: relative;
     margin: 0 auto;
+    overflow: hidden;
+    border: solid;
 }
 
 .row {
@@ -28,9 +32,7 @@ button {
     background-color: blue;
 }   */
 
-.grid {
-    border:solid;
-    border-width: 1px;
+.square {
     height: 25px;
     width: 25px;
 }

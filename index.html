@@ -19,8 +19,9 @@
             row.className = "row";
             for (var i = 0; i < size; i ++) {
                 var div = document.createElement("div");
-                div.className = "grid";
-                div.style.width = 1000/size;
+                div.className = "square";
+                div.style.width = 500/size + "px";
+                div.style.height = 500/size + "px";
                 div.addEventListener("mouseover",function (e) {
                     e.target.style.background = "blue";
                 }); 
@@ -29,26 +30,25 @@
             document.getElementById("container").appendChild(row);
 
         }
+        
 
     }
     function changeGrid() {
-        var size;
+        //var size;
         var person = prompt("Please enter a number from 1-64", 1);
-        document.getElementsByClassName("grid").innerHTML = "";
+        document.getElementsByClassName("square").innerHTML = "";
+        removeElementsByClass("row");
         createGrid(person);
     }
+    // Looked up this function to delete every element by class name
+    function removeElementsByClass(className){
+        var elements = document.getElementsByClassName(className);
+        while(elements.length > 0) {
+            elements[0].parentNode.removeChild(elements[0]);
+    }
+    }
+createGrid(10);
 
-    createGrid(20);
-
-    // var x = document.getElementById("container");
-    // var y = document.getElementsByClassName("grid");
-
-    // for (var i = 0; i < y.length; i++) {
-    //     y[i].addEventListener("mouseover", function (e){
-    //         e.target.style.backgroundColor = "blue";
-    //     });
-
-    // }
 
 
 
