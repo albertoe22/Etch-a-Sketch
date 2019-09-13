@@ -5,7 +5,12 @@
         <link rel="stylesheet" href = "style.css">
     </head>
     <body>
-        <button onclick = "changeGrid()">Reset</button>
+        <button onclick = "reset()">Reset</button>
+        <button onclick = "changeGrid()">Change Grid</button>
+        <button onclick = "rainbowGrid()" >Rainbow</button>
+        <!-- <button onclick = "changeColor()">Change Color</button> -->
+        <label for = "colorWell" >Color:</label>
+        <input type = "color" id = "colorWell">
         <div id ="container"></div>
     </body>
 
@@ -13,7 +18,9 @@
 </html>
 
 <script>
-    function createGrid(size) {
+    var initialColor = "#000000";
+    var initialSize = 16;
+    function createGrid(size, color) {
         for (var j = 0; j < size; j++) {
             var row = document.createElement("div")
             row.className = "row";
@@ -22,8 +29,12 @@
                 div.className = "square";
                 div.style.width = 500/size + "px";
                 div.style.height = 500/size + "px";
+                
                 div.addEventListener("mouseover",function (e) {
-                    e.target.style.background = "blue";
+                    if (color == "random") {
+                        e.target.style.background = "rgb"+ randomColor();
+                    }
+                    e.target.style.background =  color;
                 }); 
                 row.appendChild(div);   
             }
@@ -33,13 +44,20 @@
         
 
     }
+    function rainbowGrid() {
+        removeElementsByClass("row");
+        createGrid(initialSize, "random");
+    }
+
     function changeGrid() {
         //var size;
         var person = prompt("Please enter a number from 1-64", 1);
-        document.getElementsByClassName("square").innerHTML = "";
+        //document.getElementsByClassName("square").innerHTML = "";
         removeElementsByClass("row");
-        createGrid(person);
+        initialSize = person;
+        createGrid(person,initialColor);
     }
+
     // Looked up this function to delete every element by class name
     function removeElementsByClass(className){
         var elements = document.getElementsByClassName(className);
@@ -47,7 +65,42 @@
             elements[0].parentNode.removeChild(elements[0]);
     }
     }
-createGrid(10);
+
+    function reset() {
+        var size = document.getElementsByClassName("square");
+        for (var i = 0; i < size.length; i ++) {    
+            size[i].style.backgroundColor = "white";
+        }
+        
+    
+    }
+    // function changeColor() {
+    //     var userColor = prompt("Please enter a RGB color like (0,0,255) = BLUE", "(0,0,255)");
+    //     removeElementsByClass("row");
+    //     createGrid(initialSize, userColor);
+    // }
+
+    
+
+    function randomColor() {
+        var color1 = Math.floor(Math.random()*255) + 1;
+        var color2 = Math.floor(Math.random()*255) + 1;
+        var color3 = Math.floor(Math.random()*255) + 1;
+        var final = "(" + color1 + "," + color2+ "," + color3 + ")";
+        return final;
+    }
+
+    colorWell.addEventListener("input", updateFirst, false);
+
+    function updateFirst(event) {   
+        var thisColor = event.target.value;
+        removeElementsByClass("row");
+        createGrid(initialSize, thisColor);
+    }
+
+
+
+createGrid(initialSize, initialColor);
 
 
 

@@ -2,6 +2,7 @@ body {
     text-align: center;
     margin:0;
     height: 100%;
+    background-color: skyblue;
 }
 button {
     background-color: #555555;; 
@@ -14,6 +15,10 @@ button {
     display: inline-block;
     font-size: 16px;
 }
+label {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #container { 
     width: 500px;
     height: 500px;
@@ -21,6 +26,7 @@ button {
     margin: 0 auto;
     overflow: hidden;
     border: solid;
+    background-color: white;
 }
 
 .row {
