@@ -42,8 +42,8 @@
                 row.appendChild(div);   
             }
             document.getElementById("container").appendChild(row);
-
         }
+
         
 
     }
@@ -89,6 +89,7 @@
 
     function updateFirst(event) {   
         var thisColor = event.target.value;
+        initialColor = thisColor +" ";
         removeElementsByClass("row");
         createGrid(initialSize, thisColor);
     }
