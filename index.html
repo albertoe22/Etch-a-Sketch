@@ -22,7 +22,7 @@
 
 <script>
     var initialColor = "#badfdb";
-    var initialSize = 16;
+    var initialSize = 4;
     function createGrid(size, color) {
         for (var j = 0; j < size; j++) {
             var row = document.createElement("div")
@@ -49,7 +49,8 @@
     }
     function rainbowGrid() {
         removeElementsByClass("row");
-        createGrid(initialSize, "random");
+        initialColor = "random"
+        createGrid(initialSize, initialColor);
     }
 
     function changeGrid() {
