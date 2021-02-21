@@ -7,6 +7,8 @@ to the grid size. Really nice to see it in this state.
 9/20 edit
 -Fixed part where the color wheel would not update the initial color when changing on the color picker.
 
+2/21/21
+-Pushed update where grid would not reset reset when the user chooses a new color
 
-Link :
+You may view the project below:
 https://albertoe22.github.io/Etch-a-Sketch/
