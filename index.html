@@ -19,25 +19,26 @@
 
 
 
-
 <script>
     var initialColor = "#badfdb";
-    var initialSize = 4;
+    var initialSize = 24;
+
     function createGrid(size, color) {
+        // Create grid of divs and seperate them into rows/cols
         for (var j = 0; j < size; j++) {
             var row = document.createElement("div")
             row.className = "row";
             for (var i = 0; i < size; i ++) {
-                var div = document.createElement("div");
+                var div = document.createElement("div");    
                 div.className = "square";
                 div.style.width = 500/size + "px";
                 div.style.height = 500/size + "px";
-                
+                // Add an event listener to these divs so that when they get hovered, they will change color
                 div.addEventListener("mouseover",function (e) {
-                    if (color == "random") {
+                    if (initialColor == "random") {
                         e.target.style.background = "rgb"+ randomColor();
                     }
-                    e.target.style.background =  color;
+                    e.target.style.background =  initialColor;
                 }); 
                 row.appendChild(div);   
             }
@@ -48,18 +49,14 @@
 
     }
     function rainbowGrid() {
-        removeElementsByClass("row");
         initialColor = "random"
-        createGrid(initialSize, initialColor);
     }
 
+    // Changes grid size from user input
     function changeGrid() {
-        //var size;
-        var person = prompt("Please enter a number from 1-64", 1);
-        //document.getElementsByClassName("square").innerHTML = "";
+        var input = prompt("Please enter a number from 1-64", 1);
         removeElementsByClass("row");
-        initialSize = person;
-        createGrid(person,initialColor);
+        createGrid(input,initialColor);
     }
 
     // Looked up this function to delete every element by class name
@@ -70,16 +67,15 @@
     }
     }
 
+    // reverts squares to white
     function reset() {
         var size = document.getElementsByClassName("square");
         for (var i = 0; i < size.length; i ++) {    
             size[i].style.backgroundColor = "white";
         }
-        
-    
     }
 
-
+    // Generates a random RGB color string
     function randomColor() {
         var color1 = Math.floor(Math.random()*255) + 1;
         var color2 = Math.floor(Math.random()*255) + 1;
@@ -88,19 +84,16 @@
         return final;
     }
 
+    // Changes the hover color when the user uses the color wheel
     function updateFirst(event) {   
         var thisColor = event.target.value;
         initialColor = thisColor +" ";
-        removeElementsByClass("row");
-        createGrid(initialSize, thisColor);
     }
 
     colorWell.addEventListener("input", updateFirst, false);
 
-
+    // initial grid
     createGrid(initialSize, initialColor);
-
-
 
 
 </script>

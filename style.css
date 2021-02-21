@@ -1,7 +1,7 @@
 header {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 40px;
-    color: #f8a978;
+    color: black;
 }
 
 h1 {
@@ -9,20 +9,20 @@ h1 {
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: lighter;
     font-size: 20px;
-    color: #f8a978;
+    color: black;
 }
 
 body {
     text-align: center;
     margin:0;
     height: 100%;
-    background-color: #fcf9ea;
+    background-color: #78b4f8;
 }
 button {
-    background-color: #f8a978; 
+    background-color: #7c78f8; 
     border: none;
     margin: 10px;
-    color: #fcf9ea;
+    color: black;
     padding: 15px 30px;
     text-align: center;
     text-decoration: none;
